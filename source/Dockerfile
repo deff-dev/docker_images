@@ -2,10 +2,10 @@ FROM        ubuntu
 
 LABEL       author="Vitaliy Kotov" maintainer="vitaliy.kotov2017@mail.ru"
 
-LABEL       org.opencontainers.image.source="https://github.com/deff-dev"
+LABEL       org.opencontainers.image.source="https://github.com/deff-dev/docker_images"
 LABEL       org.opencontainers.image.licenses=MIT
 
-LABEL      org.opencontainers.image.description="Описание"
+LABEL      org.opencontainers.image.description="Изменена ссылка на github репозиторий"
 
 ENV         DEBIAN_FRONTEND=noninteractive
 
