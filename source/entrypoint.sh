@@ -36,8 +36,8 @@ export INTERNAL_IP
 # Switch to the container's working directory
 cd /home/container || exit 1
 mkdir -p logs/console
-mv /home/container/csgo/console.log ./logs/console/"$(date +"%d-%m-%Y %T")"_console.log
-echo -e "moved last log to /logs/console/"$(date +"%d-%m-%Y %T")"_console.log"
+DATE=$(date +"%d-%m-%Y-%T")
+export DATE
 find ./logs/console -type f -mtime +7 -exec  rm -f {} \;
 
 # Convert all of the "{{VARIABLE}}" parts of the command into the expected shell
@@ -73,5 +73,5 @@ fi
 # from the container itself.
 printf "\033[1m\033[33mcontainer@pterodactyl~ \033[0m%s\n" "$PARSED"
 # shellcheck disable=SC2086
-exec env ${PARSED}
+exec env ${PARSED} 2>&1 | tee ./logs/console/"${DATE}"_console.log
  
