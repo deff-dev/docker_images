@@ -73,5 +73,6 @@ fi
 # from the container itself.
 printf "\033[1m\033[33mcontainer@pterodactyl~ \033[0m%s\n" "$PARSED"
 # shellcheck disable=SC2086
-exec env ${PARSED} 2>&1 | tee ./logs/console/"${DATE}"_console.log
+exec env unbuffer -p ${PARSED} | tee "logs/console/${DATE}_console.log"
+
  
