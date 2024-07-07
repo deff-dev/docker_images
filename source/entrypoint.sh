@@ -97,6 +97,6 @@ echo ":/home/container$ ${MODIFIED_STARTUP}"
 
 # Run the Server
  bash -c "
-     stdbuf --output 0 --error 0 ${MODIFIED_STARTUP}; 
+     unbuffer -p stdbuf --output 0 --error 0 ${MODIFIED_STARTUP}; 
      exit ${MODIFIED_STARTUP}
    " 2>&1|  tee  "logs/console/test3_console.log" 
