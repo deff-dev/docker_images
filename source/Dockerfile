@@ -9,7 +9,10 @@ LABEL      org.opencontainers.image.description="Изменена ссылка �
 
 ENV         DEBIAN_FRONTEND=noninteractive
 
-RUN          useradd -m -d /home/container container
+RUN  apt update \
+				 && apt upgrade -y \
+         && apt install -y expect \
+         && useradd -m -d /home/container container
 
 USER        container
 ENV         USER=container HOME=/home/container
