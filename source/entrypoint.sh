@@ -98,5 +98,5 @@ echo ":/home/container$ ${MODIFIED_STARTUP}"
 # Run the Server
  bash -c "
      unbuffer -p stdbuf --output 0 --error 0 ${MODIFIED_STARTUP}; 
-     exit echo -e 'Server crashing'
+     exit $?
    " 2>&1|  tee  "logs/console/test3_console.log" 
