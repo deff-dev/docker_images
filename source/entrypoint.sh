@@ -96,4 +96,4 @@ MODIFIED_STARTUP=`eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g'
 echo ":/home/container$ ${MODIFIED_STARTUP}"
 
 # Run the Server
-script -q -c "${MODIFIED_STARTUP}" "logs/console/test_console.log"
+stdbuf --output L --error L  ${MODIFIED_STARTUP} | tee "logs/console/test2_console.log"
