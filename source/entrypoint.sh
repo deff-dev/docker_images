@@ -99,5 +99,5 @@ echo ":/home/container$ ${MODIFIED_STARTUP}"
 stdbuf --output 0 --error 0
   bash -c "
      unbuffer -p ${MODIFIED_STARTUP}; 
-     exit $?
-   " 2>&1| tee  "logs/console/test3_console.log" 
+     exit $? 2>&1
+   " | tee  "logs/console/test3_console.log" 
