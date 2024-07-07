@@ -1,4 +1,4 @@
-FROM        debian:12
+FROM        debian:11
 
 LABEL       author="Vitaliy Kotov" maintainer="vitaliy.kotov2017@mail.ru"
 
