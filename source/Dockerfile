@@ -1,4 +1,4 @@
-FROM        debian:11
+FROM        ubuntu:20.04
 
 LABEL       author="Vitaliy Kotov" maintainer="vitaliy.kotov2017@mail.ru"
 
