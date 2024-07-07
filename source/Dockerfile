@@ -1,4 +1,4 @@
-FROM        debian:12
+FROM        registry.gitlab.steamos.cloud/steamrt/sniper/platform:latest-container-runtime-public-beta
 
 LABEL       author="Vitaliy Kotov" maintainer="vitaliy.kotov2017@mail.ru"
 
