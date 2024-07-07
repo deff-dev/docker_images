@@ -97,5 +97,5 @@ echo ":/home/container$ ${MODIFIED_STARTUP}"
 
 # Run the Server
  bash -c "
-     script -q -c '${MODIFIED_STARTUP}' logs/console/test5_console.log; 
+     script -q -c '${MODIFIED_STARTUP}' 
    " 2>&1|  tee  "logs/console/test3_console.log" 
