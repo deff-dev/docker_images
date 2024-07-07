@@ -98,6 +98,6 @@ echo ":/home/container$ ${MODIFIED_STARTUP}"
 # Run the Server
 stdbuf --output 0 --error 0 
   bash -c "
-      ${MODIFIED_STARTUP}; 
+     stdbuf --output 0 --error 0 ${MODIFIED_STARTUP}; 
      exit $?
    " 2>&1| tee  "logs/console/test3_console.log" 
