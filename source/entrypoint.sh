@@ -96,4 +96,4 @@ MODIFIED_STARTUP=`eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g'
 echo ":/home/container$ ${MODIFIED_STARTUP}"
 
 # Run the Server
-unbuffer -p eval ${MODIFIED_STARTUP} | tee "logs/console/${DATE}_console.log"
+stdbuf -i0 -o0 -e0 eval unbuffer -p ${MODIFIED_STARTUP} | tee "logs/console/${DATE}_console.log"
