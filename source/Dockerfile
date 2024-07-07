@@ -1,4 +1,4 @@
-FROM        ubuntu:20.04
+FROM        debian:10-slim
 
 LABEL       author="Vitaliy Kotov" maintainer="vitaliy.kotov2017@mail.ru"
 
