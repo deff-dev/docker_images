@@ -1,4 +1,4 @@
-FROM        debian:10-slim
+FROM        debian:11-slim
 
 LABEL       author="Vitaliy Kotov" maintainer="vitaliy.kotov2017@mail.ru"
 
