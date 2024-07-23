@@ -68,7 +68,8 @@ if [ -z ${AUTO_UPDATE} ] || [ "${AUTO_UPDATE}" == "1" ]; then
             exitcode=$?
             if [ "${counter}" -gt "10" ]; then
             #    mkdir -p game/csgo/backup && cp game/csgo/cfg/* game/csgo/backup/
-                echo rm -rf steamapps/downloading/*
+            #    echo rm -rf steamapps/downloading/*
+                echo 'К сожалению, не удалось обновить сервер после 10 попыток :(' >> logs/update.log
                 break
             fi
         done
