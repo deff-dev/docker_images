@@ -34,7 +34,8 @@ INTERNAL_IP=$(ip route get 1 | awk '{print $NF;exit}')
 export INTERNAL_IP
 
 # Set proxy
-export http_proxy=http://213.176.64.225:3128
+http_proxy=http://213.176.64.225:3128
+export http_proxy
 
 # Switch to the container's working directory
 cd /home/container || exit 1
