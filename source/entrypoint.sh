@@ -60,6 +60,9 @@ fi
 HTTP_PROXY=http://213.176.64.225:3128
 export HTTP_PROXY
 
+echo -e "test"
+curl ifconfig.me
+
 ## if auto_update is not set or to 1 update
 if [ -z ${AUTO_UPDATE} ] || [ "${AUTO_UPDATE}" == "1" ]; then
     # Update Source Server
