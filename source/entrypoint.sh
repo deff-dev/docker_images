@@ -33,10 +33,6 @@ export TZ
 INTERNAL_IP=$(ip route get 1 | awk '{print $NF;exit}')
 export INTERNAL_IP
 
-# Set proxy
-http_proxy=http://213.176.64.225:3128
-export http_proxy
-
 # Switch to the container's working directory
 cd /home/container || exit 1
 mkdir -p logs/console
@@ -59,6 +55,10 @@ if [ "${STEAM_USER}" == "" ]; then
 else
     echo -e "user set to ${STEAM_USER}"
 fi
+
+# Set proxy
+HTTP_PROXY=http://213.176.64.225:3128
+export HTTP_PROXY
 
 ## if auto_update is not set or to 1 update
 if [ -z ${AUTO_UPDATE} ] || [ "${AUTO_UPDATE}" == "1" ]; then
@@ -86,7 +86,7 @@ else
 fi
 
 # Unset proxy
-unset http_proxy
+unset HTTP_PROXY
 
 # Edit /home/container/game/csgo/gameinfo.gi to add MetaMod path
 # Credit: https://github.com/ghostcap-gaming/ACMRS-cs2-metamod-update-fix/blob/main/acmrs.sh
