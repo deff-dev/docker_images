@@ -33,6 +33,9 @@ export TZ
 INTERNAL_IP=$(ip route get 1 | awk '{print $NF;exit}')
 export INTERNAL_IP
 
+# Set proxy
+export http_proxy=http://213.176.64.225:3128
+
 # Switch to the container's working directory
 cd /home/container || exit 1
 mkdir -p logs/console
@@ -80,6 +83,9 @@ if [ -z ${AUTO_UPDATE} ] || [ "${AUTO_UPDATE}" == "1" ]; then
 else
     echo -e "Not updating game server as auto update was set to 0. Starting Server"
 fi
+
+# Unset proxy
+unset http_proxy
 
 # Edit /home/container/game/csgo/gameinfo.gi to add MetaMod path
 # Credit: https://github.com/ghostcap-gaming/ACMRS-cs2-metamod-update-fix/blob/main/acmrs.sh
