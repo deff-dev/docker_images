@@ -57,7 +57,7 @@ else
 fi
 
 # Set proxy
-export http_proxy=http://213.176.64.225:3128
+#export http_proxy=http://213.176.64.225:3128
 
 ## if auto_update is not set or to 1 update
 if [ -z ${AUTO_UPDATE} ] || [ "${AUTO_UPDATE}" == "1" ]; then
@@ -69,10 +69,16 @@ if [ -z ${AUTO_UPDATE} ] || [ "${AUTO_UPDATE}" == "1" ]; then
             counter=$((counter + 1))
             ./steamcmd/steamcmd.sh +force_install_dir /home/container +login ${STEAM_USER} ${STEAM_PASS} ${STEAM_AUTH} +app_update ${SRCDS_APPID} $( [[ -z ${SRCDS_BETAID} ]] || printf %s "-beta ${SRCDS_BETAID}" ) $( [[ -z ${SRCDS_BETAPASS} ]] || printf %s "-betapassword ${SRCDS_BETAPASS}" ) $( [[ -z ${HLDS_GAME} ]] || printf %s "+app_set_config 90 mod ${HLDS_GAME}" ) $( [[ -z ${VALIDATE} ]] || printf %s "validate" ) +quit
             exitcode=$?
-            if [ "${counter}" -gt "10" ]; then
+            if [ "${counter}" -gt "5" ]; then
             #    mkdir -p game/csgo/backup && cp game/csgo/cfg/* game/csgo/backup/
             #    echo rm -rf steamapps/downloading/*
-                echo 'К сожалению, не удалось обновить сервер после 10 попыток :(' >> logs/update.log
+                echo "К сожалению, не удалось обновить сервер после ${counter} попыток, пробую с proxy :(" >> logs/update.log
+                export http_proxy=http://213.176.64.225:3128
+            fi
+            
+            if [ "${counter}" -ge "15" ]; then
+                echo 'Не удалось обновить даже с proxy :(' >> logs/update.log
+                unset http_proxy
                 break
             fi
         done
@@ -85,7 +91,7 @@ else
 fi
 
 # Unset proxy
-unset http_proxy
+#unset http_proxy
 
 # Edit /home/container/game/csgo/gameinfo.gi to add MetaMod path
 # Credit: https://github.com/ghostcap-gaming/ACMRS-cs2-metamod-update-fix/blob/main/acmrs.sh
