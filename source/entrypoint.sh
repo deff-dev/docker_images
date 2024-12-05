@@ -57,8 +57,8 @@ else
 fi
 
 # Set proxy
-HTTP_PROXY=http://213.176.64.225:3128
-export HTTP_PROXY
+export http_proxy=http://213.176.64.225:3128
+curl ifconfig.me
 
 ## if auto_update is not set or to 1 update
 if [ -z ${AUTO_UPDATE} ] || [ "${AUTO_UPDATE}" == "1" ]; then
@@ -86,7 +86,7 @@ else
 fi
 
 # Unset proxy
-unset HTTP_PROXY
+unset http_proxy
 
 # Edit /home/container/game/csgo/gameinfo.gi to add MetaMod path
 # Credit: https://github.com/ghostcap-gaming/ACMRS-cs2-metamod-update-fix/blob/main/acmrs.sh
