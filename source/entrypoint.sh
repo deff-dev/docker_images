@@ -87,6 +87,7 @@ fi
 
 # Unset proxy
 unset http_proxy
+curl ifconfig.me
 
 # Edit /home/container/game/csgo/gameinfo.gi to add MetaMod path
 # Credit: https://github.com/ghostcap-gaming/ACMRS-cs2-metamod-update-fix/blob/main/acmrs.sh
