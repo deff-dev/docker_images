@@ -22,6 +22,8 @@
 # SOFTWARE.
 #
 
+source /scripts/update.sh
+
 # Give everything time to initialize for preventing SteamCMD deadlock
 sleep 1
 
@@ -117,6 +119,9 @@ if [ -f "${GAMEINFO_FILE}" ]; then
         echo "The file ${GAMEINFO_FILE} has been configured for MetaMod successfully."
     fi
 fi
+
+# Copyed from  https://github.com/K4ryuu/CS2-Egg/tree/dev
+cleanup_and_update
 
 # Display the command we're running in the output, and then execute it with the env
 # from the container itself.
