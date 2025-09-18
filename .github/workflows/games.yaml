@@ -32,4 +32,4 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            ghcr.io/deff-dev/docker_images:${{ matrix.game }}-fix-cs2-update
+            ghcr.io/deff-dev/docker_images:${{ matrix.game }}-fix-cs2-update-proxy

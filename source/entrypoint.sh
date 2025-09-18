@@ -76,7 +76,7 @@ if [ -z ${AUTO_UPDATE} ] || [ "${AUTO_UPDATE}" == "1" ]; then
             #    echo rm -rf steamapps/downloading/*
                 echo "[$(date +%d-%m-%Y-%T)] К сожалению, не удалось обновить сервер после ${counter} попыток, пробую с proxy :(" >> logs/update.log
                 #export http_proxy=http://213.176.64.225:3128
-                export http_proxy=http://109.120.139.126:3128
+                export http_proxy=http://161.35.20.64:3128
             fi
             
             if [ "${counter}" -eq "15" ]; then
