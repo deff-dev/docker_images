@@ -77,6 +77,7 @@ if [ -z ${AUTO_UPDATE} ] || [ "${AUTO_UPDATE}" == "1" ]; then
                 echo "[$(date +%d-%m-%Y-%T)] К сожалению, не удалось обновить сервер после ${counter} попыток, пробую с proxy :(" >> logs/update.log
                 #export http_proxy=http://213.176.64.225:3128
                 export http_proxy=http://161.35.20.64:3128
+                curl ifconfig.me
             fi
             
             if [ "${counter}" -eq "15" ]; then
