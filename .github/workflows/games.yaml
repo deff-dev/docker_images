@@ -28,8 +28,8 @@ jobs:
       - uses: docker/build-push-action@v4
         with:
           context: ./${{ matrix.game }}
-          file: ./${{ matrix.game }}/Dockerfile_Steam
+          file: ./${{ matrix.game }}/Dockerfile
           platforms: linux/amd64
           push: true
           tags: |
-            ghcr.io/deff-dev/docker_images:${{ matrix.game }}-fix-cs2-update-proxy
+            ghcr.io/deff-dev/docker_images:${{ matrix.game }}-abkam
