@@ -76,7 +76,7 @@ if [ -z ${AUTO_UPDATE} ] || [ "${AUTO_UPDATE}" == "1" ]; then
             #    echo rm -rf steamapps/downloading/*
                 echo "[$(date +%d-%m-%Y-%T)] К сожалению, не удалось обновить сервер после ${counter} попыток, пробую с proxy :(" >> logs/update.log
                 #export http_proxy=http://213.176.64.225:3128
-                export http_proxy=http://161.35.20.64:3128
+                export http_proxy=http://deff-dev.ru:3128
                 curl ifconfig.me
             fi
             
@@ -122,7 +122,7 @@ if [ -f "${GAMEINFO_FILE}" ]; then
 fi
 
 # Copyed from  https://github.com/K4ryuu/CS2-Egg/tree/dev
-cleanup_and_update
+update_addons
 
 # Display the command we're running in the output, and then execute it with the env
 # from the container itself.
