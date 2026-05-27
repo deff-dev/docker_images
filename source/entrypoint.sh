@@ -23,6 +23,7 @@
 #
 
 source /scripts/update.sh
+source /scripts/sync.sh
 
 # Give everything time to initialize for preventing SteamCMD deadlock
 sleep 1
@@ -62,7 +63,7 @@ fi
 #export http_proxy=http://213.176.64.225:3128
 
 ## if auto_update is not set or to 1 update
-if [ -z ${AUTO_UPDATE} ] || [ "${AUTO_UPDATE}" == "1" ]; then
+if [ -z ${STEAM_AUTO_UPDATE} ] || [ "${STEAM_AUTO_UPDATE}" == "1" ]; then
     # Update Source Server
     if [ ! -z ${SRCDS_APPID} ]; then
         counter=0
@@ -123,6 +124,11 @@ fi
 
 # Copyed from  https://github.com/K4ryuu/CS2-Egg/tree/dev
 update_addons
+
+if [ ${STEAM_AUTO_UPDATE:-0} -eq 0 ]; then
+    sync_files
+fi
+
 
 # Display the command we're running in the output, and then execute it with the env
 # from the container itself.
